@@ -1,13 +1,13 @@
 function script_rpn_bf_pedestrian_VGG16_caltech()
 
 clc;
-clear mex;
-clear is_valid_handle; % to clear init_key
-run(fullfile(fileparts(fileparts(mfilename('fullpath'))), 'startup'));
-%% -------------------- CONFIG --------------------
-opts.caffe_version          = 'caffe_faster_rcnn';
-opts.gpu_id                 = auto_select_gpu;
-active_caffe_mex(opts.gpu_id, opts.caffe_version);
+%clear mex;
+%clear is_valid_handle; % to clear init_key
+%run(fullfile(fileparts(fileparts(mfilename('fullpath'))), 'startup'));
+%%% -------------------- CONFIG --------------------
+%opts.caffe_version          = 'caffe_faster_rcnn';
+%opts.gpu_id                 = auto_select_gpu;
+%active_caffe_mex(opts.gpu_id, opts.caffe_version);
 
 exp_name = 'VGG16_caltech';
 
@@ -176,7 +176,7 @@ folder1 = fullfile(pwd, 'output', exp_name, 'bf_cachedir', method_name);
 folder2 = fullfile(pwd, 'external', 'code3.2.1', 'data-USA', 'res', method_name);
 
 if ~exist(folder1, 'dir')
-    [~,~,gt,dt]=DeepTest_otf_trans_ratio('name',opts.name,'roidb_test', opts.roidb_test, 'imdb_test', opts.imdb_test, ...
+    [~,~,gt,dt]=DeepTest_otf_trans-ratio('name',opts.name,'roidb_test', opts.roidb_test, 'imdb_test', opts.imdb_test, ...
         'gtDir',[dataDir 'test/annotations'],'pLoad',[pLoad, 'hRng',[50 inf],...
         'vRng',[.65 1],'xRng',[5 635],'yRng',[5 475]],...
         'reapply',1,'show',2, 'nms_thres', opts.nms_thres, ...

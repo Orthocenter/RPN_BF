@@ -29,5 +29,13 @@ function startup()
 
     mkdir_if_missing(fullfile(curdir, 'models'));
 
+    clear mex;
+clear is_valid_handle; % to clear init_key
+%run(fullfile(fileparts(fileparts(mfilename('fullpath'))), 'startup'));
+%% -------------------- CONFIG --------------------
+opts.caffe_version          = 'caffe_faster_rcnn';
+opts.gpu_id                 = auto_select_gpu;
+active_caffe_mex(opts.gpu_id, opts.caffe_version);
+    
     fprintf('RPN_BF startup done\n');
 end

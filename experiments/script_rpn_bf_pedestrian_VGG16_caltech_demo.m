@@ -1,13 +1,13 @@
 function script_rpn_bf_pedestrian_VGG16_caltech_demo()
 close all;
 clc;
-clear mex;
-clear is_valid_handle; % to clear init_key
-run(fullfile(fileparts(fileparts(mfilename('fullpath'))), 'startup'));
+%clear mex;
+%clear is_valid_handle; % to clear init_key
+%run(fullfile(fileparts(fileparts(mfilename('fullpath'))), 'startup'));
 %% -------------------- CONFIG --------------------
-opts.caffe_version          = 'caffe_faster_rcnn';
-opts.gpu_id                 = auto_select_gpu;
-active_caffe_mex(opts.gpu_id, opts.caffe_version);
+%opts.caffe_version          = 'caffe_faster_rcnn';
+%opts.gpu_id                 = auto_select_gpu;
+%active_caffe_mex(opts.gpu_id, opts.caffe_version);
 
 opts.per_nms_topN           = -1;
 opts.nms_overlap_thres      = 0.7;
@@ -102,7 +102,7 @@ for j = 1:2 % we warm up 2 times
 end
 
 %% -------------------- TESTING --------------------
-im_names = {'ped1.jpg', 'ped2.jpg', 'ped3.jpg'};
+im_names = {'test11.jpg', 'test2.png'};
 
 
 running_time = [];
@@ -159,7 +159,7 @@ end
 fprintf('mean time: %.3fs\n', mean(running_time));
 
 caffe.reset_all(); 
-clear mex;
+%clear mex;
 
 end
 
