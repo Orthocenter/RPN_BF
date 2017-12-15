@@ -70,9 +70,11 @@ exps=cell2struct(exps',{'name','hr','vr','ar','overlap','filter'});
 n=1000; clrs=zeros(n,3);
 for i=1:n, clrs(i,:)=max(.3,mod([78 121 42]*(i+1),255)/255); end
 algs = {  
-  'RPN-ped',       0, clrs(6,:),   '-'
-  'RPN+BF',       0, clrs(7,:),   '-'
-  
+  'RPN-NOISE0',       0, clrs(1,:),   '-'
+  'RPN-NOISE1',       0, clrs(2,:),   '-'
+  'RPN-NOISE2',       0, clrs(3,:),   '-'
+  'RPN-REDUCE1',       0, clrs(4,:),   '-'
+  'RPN-REDUCE-NOISE1', 0, clrs(5,:),   '-'
 };
 algs=cell2struct(algs',{'name','resize','color','style'});
 
@@ -201,6 +203,9 @@ for p=1:nPlots
     kp=[find(strcmp(stra,'VJ')) find(strcmp(stra,'HOG')) 1 1];
     [~,ord]=sort(scores(p,:)); kp=ord==kp(1)|ord==kp(2);
     j=find(cumsum(~kp)>=plotNum-2); kp(1:j(1))=1; ord=fliplr(ord(kp));
+    %%%%
+    ord = 1:nDt;
+    %%%%
     xs1=xs1(ord); ys1=ys1(ord); lgd1=lgd1(ord); colors1=colors(ord,:);
     styles1=styles(ord); f=fopen([fName1 '.txt'],'w');
     for d=1:nDt, fprintf(f,'%s %f\n',stra{d},scores(p,d)); end; fclose(f);
