@@ -79,6 +79,7 @@ algs = {
   'RPN-REDUCE13',       0, clrs(7,:),   '-'
   'RPN-REDUCE-NOISE1', 0, clrs(8,:),   '-'
   'RPN-REDUCE-NOISE2', 0, clrs(9,:),   '-'
+  'RPN-REDUCE-SHIFT1', 0, clrs(10,:),   '-'
 };
 algs=cell2struct(algs',{'name','resize','color','style'});
 
