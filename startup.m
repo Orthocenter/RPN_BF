@@ -13,7 +13,7 @@ function startup()
     addpath(genpath(fullfile(curdir, 'experiments')));
     addpath(genpath(fullfile(curdir, 'imdb')));
     
-    addpath(fullfile(curdir, 'datasets/caltech'));
+    %addpath(fullfile(curdir, 'datasets/caltech'));
 
     addpath(genpath(fullfile(curdir, 'external/toolbox')));
 

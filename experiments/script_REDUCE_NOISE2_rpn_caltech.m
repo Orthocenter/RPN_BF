@@ -1,4 +1,4 @@
-function script_REDUCE_NOISE1_rpn_caltech()
+function script_REDUCE_NOISE2_rpn_caltech()
 % --------------------------------------------------------
 % RPN_BF
 % Copyright (c) 2016, Liliang Zhang
@@ -14,19 +14,19 @@ clc;
 %opts.gpu_id                 = auto_select_gpu;
 %active_caffe_mex(opts.gpu_id, opts.caffe_version);
 
-exp_name = 'REDUCE_NOISE1_caltech';
+exp_name = 'REDUCE_NOISE2_caltech';
 
 % do validation, or not 
 opts.do_val                 = true; 
 % model
 model                       = Model.VGG16_for_rpn_pedestrian_caltech(exp_name);
 % cache base
-cache_base_proposal         = 'rpn_caltech_vgg_16layers_reduce_noise1';
+cache_base_proposal         = 'rpn_caltech_vgg_16layers_reduce1';
 % train/test data
 dataset                     = [];
 % use_flipped                 = true;
 % dataset                     = Dataset.caltech_trainval(dataset, 'train', use_flipped);
-dataset                     = Dataset.caltech_REDUCE_NOISE1_trainval(dataset, 'train');
+dataset                     = Dataset.caltech_REDUCE_NOISE2_trainval(dataset, 'train');
 % dataset                     = Dataset.caltech_test(dataset, 'test', false);
 dataset                     = Dataset.caltech_test(dataset, 'test');
 
@@ -48,7 +48,7 @@ model.stage1_rpn            = Faster_RCNN_Train.do_proposal_train_caltech(conf_p
 
 %% test
 cache_name = 'caltech';
-method_name = 'RPN-REDUCE-NOISE1';
+method_name = 'RPN-REDUCE-NOISE2';
 Faster_RCNN_Train.do_proposal_test_caltech(conf_proposal, model.stage1_rpn, dataset.imdb_test, dataset.roidb_test, cache_name, method_name);
 
 end

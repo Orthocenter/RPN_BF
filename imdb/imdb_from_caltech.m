@@ -22,7 +22,7 @@ else
     %cache_file = ['./imdb/cache/imdb_caltech_' image_set];
     cache_file = [root_dir '/imdb_' image_set];
 end
-fprintf('cache_file: %s\n', cache_file);
+fprintf('imdb_cache_file path: %s\n', cache_file);
 try
   load(cache_file);
   fprintf('loaded cache_file\n') ;
@@ -30,6 +30,7 @@ try
 catch
   fprintf('creating imdb from root_dir: %s\n', root_dir);
   imdb.name = image_set;
+  imdb.root_dir = root_dir;
   imdb.extension = '.jpg';
   imdb.image_dir = fullfile(root_dir, image_set, 'images');
   

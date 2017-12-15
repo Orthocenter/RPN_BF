@@ -70,11 +70,15 @@ exps=cell2struct(exps',{'name','hr','vr','ar','overlap','filter'});
 n=1000; clrs=zeros(n,3);
 for i=1:n, clrs(i,:)=max(.3,mod([78 121 42]*(i+1),255)/255); end
 algs = {  
-  'RPN-NOISE0',       0, clrs(1,:),   '-'
-  'RPN-NOISE1',       0, clrs(2,:),   '-'
-  'RPN-NOISE2',       0, clrs(3,:),   '-'
-  'RPN-REDUCE1',       0, clrs(4,:),   '-'
-  'RPN-REDUCE-NOISE1', 0, clrs(5,:),   '-'
+  'RPN-NOISE00',       0, clrs(1,:),   '-'
+  'RPN-NOISE01',       0, clrs(2,:),   '-'
+  'RPN-NOISE02',       0, clrs(3,:),   '-'
+  'RPN-REDUCE10',       0, clrs(4,:),   '-'
+  'RPN-REDUCE11',       0, clrs(5,:),   '-'
+  'RPN-REDUCE12',       0, clrs(6,:),   '-'
+  'RPN-REDUCE13',       0, clrs(7,:),   '-'
+  'RPN-REDUCE-NOISE1', 0, clrs(8,:),   '-'
+  'RPN-REDUCE-NOISE2', 0, clrs(9,:),   '-'
 };
 algs=cell2struct(algs',{'name','resize','color','style'});
 

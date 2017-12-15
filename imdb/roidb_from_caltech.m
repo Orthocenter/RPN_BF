@@ -15,8 +15,10 @@ function roidb = roidb_from_caltech(imdb, flip)
 % ---------------------------------------------------------
 
 roidb.name = imdb.name;
+root_dir = imdb.root_dir;
 
-anno_path = ['./datasets/caltech/' roidb.name '/annotations'];
+%anno_path = ['./datasets/caltech/' roidb.name '/annotations'];
+anno_path = [imdb.root_dir '/' roidb.name '/annotations'];
 % prop_path = ['./datasets/caltech/' roidb.name '/proposals'];
 
 addpath(genpath('./external/code3.2.1'));
@@ -24,14 +26,19 @@ pLoad={'lbls',{'person'},'ilbls',{'people'},'squarify',{3,.41}};
 pLoad = [pLoad 'hRng',[50 inf], 'vRng',[1 1] ];
 
 if flip
-    cache_file = ['./imdb/cache/roidb_caltech_' imdb.name '_flip'];
+    %cache_file = ['./imdb/cache/roidb_caltech_' imdb.name '_flip'];
+    cache_file = [root_dir '/roidb_' imdb.name '_flip'];
 else
-    cache_file = ['./imdb/cache/roidb_caltech_' imdb.name];
+    %cache_file = ['./imdb/cache/roidb_caltech_' imdb.name];
+    cache_file = [root_dir '/roidb_' imdb.name];
 end
 cache_file = [cache_file, '.mat'];
+fprintf('imdb_cache_file path: %s\n', cache_file);
 try
   load(cache_file);
+  fprintf('loaded cache_file\n') ;
 catch
+  fprintf('creating roidb from root_dir: %s\n', root_dir);
   roidb.name = imdb.name;
 
   fprintf('Loading region proposals...');
