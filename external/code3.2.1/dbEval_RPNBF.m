@@ -70,21 +70,36 @@ exps=cell2struct(exps',{'name','hr','vr','ar','overlap','filter'});
 n=1000; clrs=zeros(n,3);
 for i=1:n, clrs(i,:)=max(.3,mod([78 121 42]*(i+1),255)/255); end
 algs = {  
-  %'RPN-NOISE00',       0, clrs(1,:),   '-'
-  %'RPN-NOISE01',       0, clrs(2,:),   '-'
-  %'RPN-NOISE02',       0, clrs(3,:),   '-'
-  %'RPN-REDUCE10',       0, clrs(4,:),   '-'
-  %'RPN-REDUCE11',       0, clrs(5,:),   '-'
-  %'RPN-REDUCE12',       0, clrs(6,:),   '-'
-  %'RPN-REDUCE13',       0, clrs(7,:),   '-'
-  %'RPN-REDUCE-NOISE1', 0, clrs(8,:),   '-' % REDUCE-MISS30
-  'RPN-REDUCE-NOISE2', 0, clrs(9,:),   '-' % REDUCE-MISS50
-  %'RPN-REDUCE-SHIFT2', 0, clrs(10,:),   '-' % REDUCE-SHIFT1
-  %'RPN-REDUCE-SHIFT3', 0, clrs(11,:),   '-' % REDUCE-SHIFT0.5
-  %'RPN-REDUCE-SHIFT4', 0, clrs(12,:),   '-' % REDUCE-BOUNDED-SHIFT0.5
-  %'RPN-SHIFT4',        0, clrs(13,:),   '-' % BOUNDED-SHIFT0.5
-  %'RPN-REDUCE-SHIFT5', 0, clrs(14,:),   '-' % REDUCE-BOUNDED-SHIFT0.05
-  'RPN-REDUCE-SHIFT6', 0, clrs(15,:),   '-' % REDUCE-BOUNDED-SHIFT0.05
+  %'RPN-expr31',       0, clrs(1,:),   '-'
+  %'RPN-expr32',       0, clrs(2,:),   '-'
+  %'RPN-expr33',       0, clrs(3,:),   '-'
+  %'RPN-expr34',       0, clrs(4,:),   '-'
+  %'RPN-expr35',       0, clrs(5,:),   '-'
+  %'RPN-expr36',       0, clrs(6,:),   '-'
+  %'RPN-expr37',       0, clrs(7,:),   '-'
+  %'RPN-expr38',       0, clrs(8,:),   '-'
+  %'RPN-expr36_2',       0, clrs(9,:),   '-'
+  %'RPN-expr42',       0, clrs(10,:),   '-'
+  %'RPN-expr44',       0, clrs(11,:),   '-'
+  %'RPN-expr45',       0, clrs(12,:),   '-'
+  %'RPN-expr47',       0, clrs(13,:),   '-'
+  %'RPN-expr46',       0, clrs(14,:),   '-'
+  %'RPN-expr43',       0, clrs(15,:),   '-'
+  %'RPN-expr49',       0, clrs(16,:),   '-'
+  %'RPN-expr50',       0, clrs(17,:),   '-'
+  %'RPN-expr54',       0, clrs(18,:),   '-'
+  %'RPN-expr48',       0, clrs(19,:),   '-'
+
+  'RPN-expr51',       0, clrs(20,:),   '-'
+  'RPN-expr52',       0, clrs(21,:),   '-'
+  'RPN-expr53',       0, clrs(22,:),   '-'
+  'RPN-expr55',       0, clrs(23,:),   '-'
+  'RPN-expr56',       0, clrs(24,:),   '-'
+  'RPN-expr57',       0, clrs(25,:),   '-'
+  'RPN-expr58',       0, clrs(26,:),   '-'
+  'RPN-expr59',       0, clrs(27,:),   '-'
+  %'RPN-expr54',       0, clrs(28,:),   '-'
+  %'RPN-expr48',       0, clrs(29,:),   '-'
 };
 algs=cell2struct(algs',{'name','resize','color','style'});
 

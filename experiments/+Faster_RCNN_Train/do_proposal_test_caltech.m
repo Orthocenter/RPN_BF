@@ -59,7 +59,7 @@ function aboxes = do_proposal_test_caltech(conf, model_stage, imdb, roidb, cache
     copyfile(folder1, folder2);
     tmp_dir = pwd;
     cd(fullfile(pwd, 'external', 'code3.2.1'));
-    dbEval_RPNBF;
+    %dbEval_RPNBF;
     cd(tmp_dir);
 end
 
